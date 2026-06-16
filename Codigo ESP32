@@ -1,12 +1,12 @@
+
+//bibliotecas
 #include <WiFi.h>
 #include <PubSubClient.h>
-
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-//Definição do OLED
-
+//Definição da tela OLED para os valores de temperatura enviados pelo codigo python
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -18,7 +18,7 @@ Adafruit_SSD1306 display(
   -1
 );
 
-//Definição dos LEDs
+//Definição dos LEDs: LED azul: temperatura ok//LED vermelho: temperatura fora do limite
 #define BLUE_LED 18
 #define RED_LED 19
 
@@ -51,8 +51,7 @@ void reconnect()
     )
     {
       Serial.println(
-        " conectado!"
-      );
+        " Conexão realizada!");
 
       client.subscribe(
         TOPICO_TEMP
