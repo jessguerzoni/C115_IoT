@@ -36,6 +36,7 @@ const char* TOPICO_TEMP =
 WiFiClient espClient;
 PubSubClient client(espClient);
 
+//Reconexão do MQTT caso necessário
 void reconnect()
 {
   while (!client.connected())
@@ -199,10 +200,7 @@ void loop()
     temperatura <= 37.5
   )
   {
-    digitalWrite(
-      BLUE_LED,
-      HIGH
-    );
+    digitalWrite(BLUE_LED,HIGH);
 
     digitalWrite(
       RED_LED,
@@ -211,10 +209,7 @@ void loop()
   }
   else
   {
-    digitalWrite(
-      BLUE_LED,
-      LOW
-    );
+    digitalWrite(BLUE_LED,LOW);
 
     digitalWrite(
       RED_LED,
@@ -261,14 +256,9 @@ void loop()
     1
   );
 
-  display.println(
-    " C"
-  );
+  display.println(" C");
 
-  display.setCursor(
-    0,
-    40
-  );
+  display.setCursor(0,40);
 
   if (
     temperatura >= 36.0 &&
