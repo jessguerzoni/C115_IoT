@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 import random
 import time
 
-
+#conexão do MQTT
 BROKER = "broker.hivemq.com"
 PORTA = 1883
 
@@ -21,7 +21,7 @@ cliente.loop_start()
 print("Wifi Conectado!")
 
 
-#Envio dos valores de temperatura aleatoriamente
+#Envio dos valores de temperatura
 while True:
 
     temperatura = round(
